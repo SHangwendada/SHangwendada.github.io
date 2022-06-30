@@ -164,20 +164,20 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-一维前缀和" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/06/30/hello-world/">Hello World</a>
+      <a class="article-title" href="/2022/07/01/%E4%B8%80%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C/">一维前缀和</a>
     </h1>
   
 
         
-        <a href="/2022/06/30/hello-world/" class="archive-article-date">
-  	<time datetime="2022-06-30T07:37:33.417Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-30</time>
+        <a href="/2022/07/01/%E4%B8%80%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C/" class="archive-article-date">
+  	<time datetime="2022-06-30T17:02:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-01</time>
 </a>
         
         
@@ -186,7 +186,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">75字</span>
+        <span class="post-count">122字</span>
       </span>
     </span>
 
@@ -205,19 +205,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <hr>
+<h2 id="一维前缀和"><a href="#一维前缀和" class="headerlink" title="一维前缀和"></a>一维前缀和</h2><h1 id=""><a href="#" class="headerlink" title=""></a></h1><pre><code>有一数组a[1],a[2],a[3]...a[n];
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+那么他的前缀和就是s[i]=a[1]+a[2]+...+a[i];
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+作用：方便我们计算数组内一个区间的和；能在O(1)的时间复杂度内算出。
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+例如我们需要算a[3]+a[4]+a[5]+a[6]+a[7];
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+那我们只需要算出s[7]-s[2]就可以快速算出来了。
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/7ca1030cf1d14d34ab783e32e6fde570.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAc2hhbmd3ZW5ERA==,size_9,color_FFFFFF,t_70,g_se,x_16"></p>
+<p>代码如下</p>
+<pre><code>s[i][j] += s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1];
+</code></pre>
 
       
 
@@ -230,7 +232,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/06/30/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/07/01/%E4%B8%80%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C/">展开全文 >></a>
         </p>
       
 
@@ -278,6 +280,8 @@
     </div>
   </div>
 </footer>
+<!--页面点击小红心-->
+<script type="text/javascript" src="/love.js"></script>
     </div>
     <script>
 	var yiliaConfig = {
